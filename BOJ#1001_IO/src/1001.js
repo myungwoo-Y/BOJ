@@ -14,9 +14,9 @@ const rl = readline.createInterface({
 
 let input = [];
  
-rl.on('line', function (line) {
+rl.on('line', (line) => {
     input = line.split(' ').map((el) => parseInt(el));
-}).on('close', function () {
+}).on('close', () => {
     console.log(input[0] - input[1]);
     process.exit();
 });

@@ -33,7 +33,6 @@ function solve(idx){
 }
 
 
-
 rl.on('line', (line) => {
   input.push(line.trim());
 }).on('close', () => {

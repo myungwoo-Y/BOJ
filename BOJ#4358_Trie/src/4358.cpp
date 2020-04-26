@@ -10,7 +10,7 @@ const char endL {'\n'};
 int new_id {};
 int total;
 const int ALPHABETS = '~' - ' ' + 1;
-int toNumber(char ch){
+int charToNum(char ch){
     return ch - ' ';
 }
 char numberToChar(int n){

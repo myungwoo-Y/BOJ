@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require("path");
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
 
 // const rl = readline.createInterface({

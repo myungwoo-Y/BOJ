@@ -11,7 +11,6 @@ const rl = readline.createInterface({
     input: fs.createReadStream(path.resolve(__dirname, "./in.txt")),
 });
 
-
 const checkCycle = (v, start, visited, seq) => {
     if(v === start){
         visited.forEach((e,i)=>{
@@ -22,13 +21,14 @@ const checkCycle = (v, start, visited, seq) => {
         });
         return;
     }else if(visited[v] && v !== start){
-        visited[start] = true;
+
         return;
     }
 
     visited[v] = true;
-    checkCycle(arr[v-1], start, visited);
+    checkCycle(arr[v-1], start, visited, seq.push(v));
 }
+
 let cnt = 0;
 let input = [];
 let n = 0;
@@ -49,16 +49,14 @@ rl.on('line', (line) => {
         for(let i = 0; i < arr.length; i++){
             graph[i+1][arr[i]] = true;
         }
-
         for(let i = 0; i < arr.length; i++){
             if(!isCycle[i+1]){
                 let visited = new Array(n+1).fill(false);
                 visited[i+1] = true;
-                checkCycle(arr[i], i+1, visited);
+                checkCycle(arr[i], i+1, visited, [].push(i+1));
             }
         }
         console.log(n-cnt);
     }
-
     process.exit();
 });

@@ -38,8 +38,6 @@ function DisjointSet(length) {
         if(u === v) return;
         this.parent[u] = v;
     }
-
-
 }
 
 rl.on('line', (line) => {

@@ -1,14 +1,5 @@
-void combination(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
 
-#ifdef LOCAL
-    freopen("in.txt", "r", stdin);
-#endif
-    cin >> rowSize >> colSize;
-
-    int elementsSize = rowSize;
+void makeCombination(int elementsSize){
     vector<int> elements;
 
     for(int i=0; i < elementsSize; i++){
@@ -17,7 +8,7 @@ void combination(){
 
     vector<int> combination;
 
-    int k = 3;
+    int k = 2;
 
     for(int i=0; i<k; i++){
         combination.push_back(1);
@@ -28,15 +19,17 @@ void combination(){
     }
 
     sort(combination.begin(), combination.end());
-
+    int ans = {MAX};
     do{
+        vector<int> colorRows;
         for(int i=0; i < combination.size(); i++){
             if(combination[i] == 1){
-                printf("%d ", elements[i]);
+                colorRows.push_back(i);
             }
         }
-
+        int ret = changeCount(colorRows[0],colorRows[1]);
+        ans = min(ans, ret);
     }while(next_permutation(combination.begin(), combination.end()));
 
-    return 0;
+    cout << ans;
 }

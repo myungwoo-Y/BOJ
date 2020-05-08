@@ -44,3 +44,36 @@ bool binarySearch(vector<int>& arr, int x){
     return false;
 }
 
+//https://m.blog.naver.com/PostView.nhn?blogId=bestmaker0290&logNo=220820005454&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+int lower_bound(int arr[], int target, int size)
+{
+    int mid, start, end;
+    start = 0, end = size-1;
+
+    while (end > start)
+    {
+        mid = (start + end) / 2;
+        if (arr[mid] >= target)
+            end = mid;
+        else start = mid + 1;
+    }
+    return end;
+}
+
+
+
+int upper_bound(int arr[], int target, int size)
+{
+    int mid, start, end;
+    start = 0, end = size-1;
+
+    while (end > start)
+    {
+        mid = (start + end) / 2;
+        if (arr[mid] > target)
+            end = mid;
+        else start = mid + 1;
+    }
+    return end;
+}

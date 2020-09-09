@@ -31,3 +31,32 @@ struct DisjointSet{
         }
     }
 };
+
+
+// simple version
+struct DisjointSet{
+    vector<int> parent;
+    vector<int> counts;
+    DisjointSet(int size): parent(size), counts(size, 1){
+        for(int i = 0; i < parent.size(); i++)
+            parent[i] = i;
+    }
+    int find(int node){
+        if(node == parent[node]){
+            return node;
+        }
+        return parent[node] = find(parent[node]);
+    }
+    int merge(int childIdx, int parentIdx){
+        int newChildIdx = find(childIdx), newParentIdx = find(parentIdx);
+        if(newChildIdx == newParentIdx)
+            return counts[newChildIdx];
+        else{
+            counts[newParentIdx] += counts[newChildIdx];
+            parent[newChildIdx] = newParentIdx;
+            return counts[newParentIdx];
+        }
+    }
+};
+
+

@@ -1,6 +1,6 @@
 # BOJ Algorithm
 
-<a href="https://www.acmicpc.net/" target="_blank"><img src="https://d2gd6pc034wcta.cloudfront.net/images/logo@2x.png" width="150"/></a>에서 푼 코드를 정리한 저장소입니다.
+<a href="https://www.acmicpc.net/" x="_blank"><img src="https://d2gd6pc034wcta.cloudfront.net/images/logo@2x.png" width="150"/></a>에서 푼 코드를 정리한 저장소입니다.
 
 
 ## Project structure

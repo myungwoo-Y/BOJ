@@ -16,8 +16,37 @@ bool indexCheck(int r, int c, int rowSize, int colSize) {
 const char endL = '\n';
 
 using namespace std;
+vector<vector<int>> graph;
+vector<int> dp;
+vector<int> isEarlyList;
 
+int N;
 
+void dfs(int v, int parent)
+{
+    int childSum = 0;
+    int childCount = 0;
+    bool isEarly = false;
+
+    for (int child : graph[v]) {
+
+        if (child == parent)
+            continue;
+        childCount++;
+        dfs(child, v);
+        isEarly |= !isEarlyList[child];
+        childSum += dp[child];
+    }
+
+    isEarlyList[v] = isEarly;
+
+    dp[v] += childSum + isEarly;
+}
+
+void sumEarlyAdapter()
+{
+    dfs(1, 0);
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -27,28 +56,22 @@ int main() {
 #ifdef LOCAL
     freopen("in.txt", "r", stdin);
 #endif
+    cin >> N;
 
-    int size {};
-    cin >> size;
-    vector<vector<int>> graph(size, vector<int>(size));
+    graph.resize(N+1);
+    dp.resize(N+1);
+    isEarlyList.resize(N+1);
 
-    for (int v = 0; v < size; ++v) {
-        string relation = "";
-        cin >> relation;
-        for (int i = 0; i < relation.length(); ++i) {
-            if(i == v)
-                graph[i][v] = 0;
-            int value = relation[i] == 'Y' ? 1 : MAX;
-            graph[v][i] = value;
-            graph[i][v] = value;
-        }
+    for (int i = 0; i < N-1; ++i) {
+        int v, u;
+        cin >> v >> u;
+        graph[v].push_back(u);
+        graph[u].push_back(v);
     }
 
-    floydWarshall(graph);
-
-
+    sumEarlyAdapter();
+    cout << dp[1];
     return 0;
 }
-
 
 

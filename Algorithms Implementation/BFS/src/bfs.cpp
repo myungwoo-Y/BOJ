@@ -4,6 +4,11 @@
 
 // simple bfs
 
+bool indexCheck(int r, int c, int rowSize, int colSize) {
+    return !(r < 0 || r >= rowSize || c < 0 || c >= colSize);
+}
+
+
 struct Pos{
     int r, c;
 };

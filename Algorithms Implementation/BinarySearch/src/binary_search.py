@@ -1,12 +1,14 @@
 def binary_search(target, data):
-    while start <= end:
-        mid = (start + end) // 2
+    l = 0
+    r = len(data) - 1
+    while l <= r:
+        mid = (l + r) // 2
 
         if data[mid] == target:
             return mid
         elif data[mid] < target:
-            start = mid + 1
+            l = mid + 1
         else:
-            end = mid - 1
+            r = mid - 1
 
     return None

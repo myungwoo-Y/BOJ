@@ -5,7 +5,7 @@ def binary_search(target, data):
         if data[mid] == target:
             return mid
         elif data[mid] < target:
-            start = mid + 1
+            start = mid + 1드
         else:
             end = mid - 1
 

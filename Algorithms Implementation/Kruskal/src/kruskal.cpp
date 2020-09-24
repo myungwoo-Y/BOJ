@@ -1,46 +1,49 @@
-// Data structure to store graph edges
 struct Edge {
     int src, dest, weight;
 };
 
-class DisjointSet
-{
-    unordered_map<int, int> parent;
-public:
-    void initSet(int N)
-    {
-        for (int i = 0; i < N; i++)
+struct DisjointSet{
+    vector<int> parent;
+    vector<int> counts;
+    DisjointSet(int size): parent(size), counts(size, 1){
+        for(int i = 0; i < parent.size(); i++)
             parent[i] = i;
     }
-
-    int find(int k)
-    {
-        if (parent[k] == k)
-            return k;
-        return find(parent[k]);
+    int find(int node){
+        if(node == parent[node]){
+            return node;
+        }
+        return parent[node] = find(parent[node]);
     }
-
-    void merge(int a, int b)
-    {
-        int x = find(a);
-        int y = find(b);
-
-        parent[x] = y;
+    int merge(int a, int b){
+        int parentA = find(a), parentB = find(b);
+        if(parentA == parentB)
+            return counts[parentA];
+        else{
+            if(counts[parentB] > counts[parentA]){
+                counts[parentB] += counts[parentA];
+                parent[parentA] = parentB;
+                return counts[parentB];
+            }else{
+                counts[parentA] += counts[parentB];
+                parent[parentB] = parentA;
+                return counts[parentA];
+            }
+        }
     }
 };
 
 vector<Edge> kruskal(vector<Edge> edges, int N)
 {
-    // 원래는 오름차순이지만 vector back을 사용하기 위해 내림차순으로 정
+    // 원래는 오름차순이지만 vector back을 사용하기 위해 내림차순으로 정렬
     sort(edges.begin(), edges.end(), [](Edge& a, Edge& b) -> bool{
         return  a.weight > b.weight;
     });
 
     vector<Edge> mst;
 
-    DisjointSet ds;
+    DisjointSet ds(N+1);
 
-    ds.initSet(N);
 
     // MST는 V-1의 간선을 갖는다
     while (mst.size() != N - 1)

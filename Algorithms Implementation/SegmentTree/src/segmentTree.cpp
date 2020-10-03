@@ -10,6 +10,7 @@ void init() {
     }
 }
 
+// [l, r) 에 주의!
 int query(int l, int r) {
     int res = 0;
     for (l += n, r += n; l < r; l >>= 1, r >>= 1) {

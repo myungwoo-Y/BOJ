@@ -116,7 +116,7 @@ int main() {
     for (int i = 0; i < k; ++i) {
         int a,b,c,d;
         cin >> a >> b >> c;
-        if(a == 1){용
+        if(a == 1){
             cin >> d;
             sg.add(b,c+1,d);
         }else{

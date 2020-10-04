@@ -15,6 +15,5 @@
 </a>
 
 ## Profile
-[![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=yang6676)](https://solved.ac/yang6676)
-
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/generate_badge?boj=yang6676)](https://solved.ac/yang6676)
 

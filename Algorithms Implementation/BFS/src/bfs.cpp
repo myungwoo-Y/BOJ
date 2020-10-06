@@ -9,7 +9,7 @@ bool indexCheck(int r, int c, int rowSize, int colSize) {
 }
 
 
-struct Pos{
+struct D{
     int r, c;
 };
 
@@ -21,20 +21,20 @@ vector<vector<int>> dirs = {
 };
 
 
-void minDistBFS(int i, int j, int condition){
-    queue<Pos> q;
-    q.push({r, c});
-    visited[r][c] = true;
+void bfs(int i, int j, int condition){
+    queue<D> q;
+    q.push({i, j});
+    visited[i][j] = true;
 
     while(!q.empty()){
-        Pos pos = q.front();
+        auto cur = q.front();
         q.pop();
         for(auto dir: dirs){
-            int newR = pos.r + dir[0];
-            int newC = pos.c + dir[1];
+            int newR = cur.r + dir[0];
+            int newC = cur.c + dir[1];
             if(indexCheck(newR, newC, n, n)
                && !visited[newR][newC]
-               && table[newR][newC] >= label){
+               && table[newR][newC] >= condition){
                 q.push({newR, newC});
                 visited[newR][newC] = true;
             }

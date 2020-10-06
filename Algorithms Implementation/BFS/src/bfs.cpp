@@ -21,19 +21,20 @@ vector<vector<int>> dirs = {
 };
 
 
-void bfs(int i, int j, int condition){
+void minDistBFS(int i, int j, int condition){
     queue<Pos> q;
-    q.push({i, j});
-    visited[i][j] = true;
+    q.push({r, c});
+    visited[r][c] = true;
 
     while(!q.empty()){
         Pos pos = q.front();
         q.pop();
         for(auto dir: dirs){
-            auto [newR, newC] = make_pair(pos.r + dir[0], pos.c + dir[1]);
+            int newR = pos.r + dir[0];
+            int newC = pos.c + dir[1];
             if(indexCheck(newR, newC, n, n)
                && !visited[newR][newC]
-               && table[newR][newC] >= condition){
+               && table[newR][newC] >= label){
                 q.push({newR, newC});
                 visited[newR][newC] = true;
             }

@@ -38,7 +38,7 @@ struct SegTree{
 };
 
 
-// 구조체 x 버
+// 구조체 x 버전
 const int TreeN = 1e5;
 int n;
 int tree[TreeN * 2];

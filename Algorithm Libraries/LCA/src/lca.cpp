@@ -1,3 +1,5 @@
+// based by https://m.blog.naver.com/kks227/220820773477
+
 #include <bits/stdc++.h>
 #include <stdio.h>
 
@@ -19,7 +21,7 @@ void makeTreeByDFS(int cur){
             parents[u][0] = cur;
             depths[u] = depths[cur] + 1;
             makeTreeByDFS(u);
-        }
+        }ㅏ
     }
 }
 

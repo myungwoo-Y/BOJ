@@ -41,19 +41,15 @@ void shortestPath(int source){
     vector<int> prev(N, -1);
 
     while (!minHeap.empty()){
-        // Remove and return best vertex
         Node node = minHeap.top();
         minHeap.pop();
 
-        // get vertex number
         int v = node.vertex;
 
-        // do for each neighbor v of v
         for (auto i : graph[v]){
             int u = i.dest;
             int weight = i.weight;
 
-            // 더 짧은 거리를 알아냈을 경우 최신화!
             if (!done[u] && (dist[v] + weight) < dist[u]){
                 dist[u] = dist[v] + weight;
                 prev[u] = v;

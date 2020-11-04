@@ -25,7 +25,7 @@ void makeTreeByDFS(int cur){
     }
 }
 
-int findLCA(int u, int v){
+int calcLcaDist(int u, int v){
     // depth[u] >= depth[v]가 되도록 필요에 따라 u, v를 스왑
     if(depths[u] < depths[v]) swap(u, v);
     int diff = depths[u] - depths[v];

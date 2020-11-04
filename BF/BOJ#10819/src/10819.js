@@ -15,7 +15,7 @@ const rl = readline.createInterface({
 let input = [];
 let n = 0;
 let arr = [];
-let dp = [];
+let dpF = [];
 let maxSum = 0;
 function cal(newArr){
     let sum = 0;

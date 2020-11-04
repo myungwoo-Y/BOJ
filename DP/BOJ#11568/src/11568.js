@@ -15,21 +15,21 @@ const rl = readline.createInterface({
 let input = [];
 let n = 0;
 let arr = [];
-let dp = [];
+let dpF = [];
 
 
 function solve(idx){
   if(idx >= arr.length)
     return 0;
-  if(dp[idx] != -1) return dp[idx];
+  if(dpF[idx] != -1) return dpF[idx];
 
-  dp[idx] = 0;
+  dpF[idx] = 0;
   for(let i =idx+1; i < arr.length; i++){
     if(arr[i] > arr[idx])
-      dp[idx] = Math.max(dp[idx], solve(i)+1);
+      dpF[idx] = Math.max(dpF[idx], solve(i)+1);
   }
 
-  return dp[idx];
+  return dpF[idx];
 }
 
 
@@ -39,7 +39,7 @@ rl.on('line', (line) => {
   n = input.shift();
   arr = input.shift().split(' ').map((a) => parseInt(a));
 
-  dp = Array(arr.length).fill(-1)
+  dpF = Array(arr.length).fill(-1)
 
   let ans = 0;
   for(let i = 0; i < arr.length; i++){

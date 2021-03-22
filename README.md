@@ -14,6 +14,15 @@
   <img src="https://res.cloudinary.com/dgggcrkxq/image/upload/v1570106347/noticon/hx52ypkqqdzjdvd8iaid.svg"/>
 </a>
 
+# Develop ENV
+
+- ### C++
+  아래와 같이 설정 후 진행하면 자동으로 해당 소스가 LOCAL 인지 Judge 사이트인지 감지하여 Input 파일을 읽을 수 있습니다.
+  ```sh
+  CMAKE_CXX_FLAGS:STRING=-D LOCAL
+  ```
+
+
 ## Profile
 [![Solved.ac 프로필](http://mazassumnida.wtf/api/generate_badge?boj=yang6676)](https://solved.ac/yang6676)
 

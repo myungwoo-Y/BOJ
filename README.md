@@ -18,6 +18,8 @@
 
 - ### C++
   아래와 같이 설정 후 진행하면 자동으로 해당 소스가 LOCAL 인지 Judge 사이트인지 감지하여 Input 파일을 읽을 수 있습니다.
+  
+  
   ```sh
   CMAKE_CXX_FLAGS:STRING=-D LOCAL
   ```

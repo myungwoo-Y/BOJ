@@ -1,12 +1,11 @@
-# BOJ Algorithm
-
-<a href="https://www.acmicpc.net/" x="_blank"><img src="https://d2gd6pc034wcta.cloudfront.net/images/logo@2x.png" width="150"/></a>에서 푼 코드를 정리한 저장소입니다.
+## Over View
+This repo contains solutions implemented in JavaScript, Python and C++
 
 ## Project structure
-각 폴더의 이름은 BOJ의 문제 번호와 사용한 알고리즘을 나타냅니다.
+The folder name means problem number and platform of online judge 
 
 ## TODO
-코드포스 블루, 매일 1문제 이상 
+Codeforce blue, Solving problems everyday 
 
 ## Blog
 <a href="https://www.notion.so/ee4b444a5925450f8086b8139b8e8adf" alt="노션 링크">
@@ -16,7 +15,7 @@
 ## Develop ENV
 
 - ### C++
-  `CMakeCache.txt` 에서 아래와 같이 설정 후 진행하면 자동으로 해당 소스가 LOCAL 인지 Judge 사이트인지 감지하여 Input 파일을 읽을 수 있습니다.
+- If you config that in `CMakeCache.txt`, you can read the input file depend on LOCAL or Judge
   
   
   ```sh

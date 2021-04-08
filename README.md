@@ -15,7 +15,7 @@ Codeforce blue, Solving problems everyday
 ## Develop ENV
 
 - ### C++
-- If you config that in `CMakeCache.txt`, you can read the input file depend on LOCAL or Judge
+  If you config that in `CMakeCache.txt`, you can read the input file depend on LOCAL or Judge
   
   
   ```sh

@@ -1,4 +1,4 @@
-## Over View
+## Overview
 This repo contains solutions implemented in JavaScript, Python and C++
 
 ## Project structure

@@ -58,7 +58,7 @@ rl.on('line', (line) => {
     let arr = [...limit];
     arr[0] = 0;
     arr[1] = 0;
-    search(arr, getKey(arr));
+    searchCheese(arr, getKey(arr));
 
     ans = [...ans].sort((a, b) => {
         return a-b;

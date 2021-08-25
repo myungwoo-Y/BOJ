@@ -21,6 +21,7 @@ int find(pair<int, int> pos, vector<vector<int>>& matrix){
             if(newR < 0 || newR >= matrix.size() || newC < 0 || newC >= matrix[0].size() || matrix[r][c] >= matrix[newR][newC]) continue;
             
             sums[r][c][dir] = find({newR, newC}, matrix) + 1;
+            
         }
         
         ret = max(ret, sums[r][c][dir]);

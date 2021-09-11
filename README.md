@@ -5,7 +5,7 @@ This repo contains solutions implemented in JavaScript, Python and C++
 The folder name means problem number and platform of online judge 
 
 ## TODO
-Solve leetcode hard everyday 
+Solve a leetcode hard everyday 
 
 ## Blog
 <a href="https://www.notion.so/ee4b444a5925450f8086b8139b8e8adf" alt="노션 링크">

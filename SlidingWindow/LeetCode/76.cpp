@@ -64,3 +64,47 @@ public:
         
     }
 };
+
+// Optimized Sliding Window(better way than noraml sliding window)
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        
+        unordered_map<char, int> m;
+        
+        // think a length of t is total count which is threshold to update answer
+        for(char ch : t){
+            m[ch]++;
+        }
+        
+        int remaining = t.length();
+        
+        vector<pair<char, int>> filtered;
+        
+        for (int i = 0; i < s.length(); i++) {
+            if(m.find(s[i]) != m.end())
+                filtered.push_back({s[i], i});
+        }
+        
+        int minIdx = 0, minLen = numeric_limits<int>::max();
+        
+        int l = 0, r = 0;
+        
+        while(r < filtered.size()){
+            if(--m[filtered[r++].first] >= 0) remaining--;
+            
+            while(remaining == 0){
+                int newLen = filtered[r-1].second - filtered[l].second + 1;
+                if(newLen <= minLen){
+                    minIdx = filtered[l].second;
+                    minLen = newLen;
+                }
+                
+                if(++m[filtered[l++].first] > 0) remaining++;
+            }
+        }
+        
+        if(minLen == numeric_limits<int>::max()) return "";
+        else return s.substr(minIdx, minLen);
+    }
+};

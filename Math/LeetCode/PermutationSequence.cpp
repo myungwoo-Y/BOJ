@@ -23,7 +23,5 @@ public:
         }
 
         return ans;
-     
-    
     }
 };

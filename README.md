@@ -1,5 +1,5 @@
 ## Overview
-This repo is made for gathering my solves and contains solutions implemented in JavaScript, Python and C++
+This repo is made for gathering my solutions that were implemented in JavaScript, Python and C++
 ## Project structure
 The folder name means a problem and platform name.
 

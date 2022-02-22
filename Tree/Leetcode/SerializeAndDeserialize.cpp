@@ -65,22 +65,6 @@ public:
         
     }
 
-    void buildTree(TreeNode* root, int idx, vector<string>& nodes) {
-        int leftIdx = 2*idx + 1, rightIdx = 2*idx + 2;
-
-        if (leftIdx < nodes.size() && nodes[leftIdx] != "null") {
-            int leftVal = stoi(nodes[leftIdx]);
-            root->left = new TreeNode(leftVal);
-            buildTree(root->left, leftIdx, nodes);
-        }
-
-        if (rightIdx < nodes.size() && nodes[rightIdx] != "null") {
-            int rightVal = stoi(nodes[rightIdx]);
-            root->right = new TreeNode(rightVal);
-            buildTree(root->right, rightIdx, nodes);
-        }
-    }
-
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
         if (data.length() <= 2) return nullptr;

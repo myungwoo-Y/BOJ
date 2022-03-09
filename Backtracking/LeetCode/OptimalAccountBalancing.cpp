@@ -62,9 +62,7 @@ public:
 
         int ret = INT_MAX;
 
-        for (int i = 0; i < debts.size(); i++) {
-            search(i, 0, 0, debts, incomes);
-        }
+        search(0, 0, 0, debts, incomes);
 
         return minTime;
     }

@@ -15,11 +15,7 @@ public:
 
         for (int num : nums) {
             minNum = min(minNum, num);
-            if (m.find(num) == m.end()) {
-                m[num] = 1;
-            } else {
-                m[num]++;
-            }
+            m[num]++;
             q.push(num);
         }
 
@@ -40,11 +36,7 @@ public:
                 int newNum = t/2;
                 minNum = min(minNum, newNum);
                 q.push(newNum);
-                if (m.find(newNum) == m.end()) {
-                    m[newNum] = 1;
-                } else {
-                    m[newNum]++;
-                }
+                m[newNum]++;
             } else {
                 break;
             }

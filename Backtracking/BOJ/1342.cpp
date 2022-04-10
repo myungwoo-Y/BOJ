@@ -13,11 +13,11 @@ const char endL = '\n';
 
 using namespace std;
 
-struct State{
+struct Pos{
     char ch = ' ';
     int cnt;
 };
-vector<State> chars;
+vector<Pos> chars;
 string str;
 int ans;
 

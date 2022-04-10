@@ -1,5 +1,5 @@
 // 1293. Shortest Path in a Grid with Obstacles Elimination
-struct State {
+struct Pos {
     int r, c, wall;
 };
 
@@ -14,7 +14,7 @@ public:
     };
 
     int getMinPath(int r, int c, int k, vector<vector<int>>& grid) {
-        queue<State> q;
+        queue<Pos> q;
         vector<vector<vector<bool>>> visited(rows, vector<vector<bool>>(cols, vector<bool>(k+1)));
         int dist = 0;
 

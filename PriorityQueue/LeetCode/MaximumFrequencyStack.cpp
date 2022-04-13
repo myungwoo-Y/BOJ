@@ -1,5 +1,6 @@
 // 895. Maximum Frequency Stack
 
+// O(logN)
 struct  Element {
     int val, freq, pos;
 };
@@ -38,5 +39,33 @@ public:
         cntMap[top.val]--;
 
         return top.val; 
+    }
+};
+
+// O(1)
+class FreqStack {
+public:
+    unordered_map<int, int> freqMap;
+    unordered_map<int, vector<int> > stackMap;
+    int maxFreq = 0;
+
+    FreqStack() {}
+    
+    void push(int val) {
+        maxFreq = max(maxFreq, ++freqMap[val]);
+        stackMap[freqMap[val]].push_back(val);
+    }
+    
+    int pop() {
+        int top = stackMap[maxFreq].back();
+
+        freqMap[top]--;
+        stackMap[maxFreq].pop_back();
+        
+        if (stackMap[maxFreq].size() == 0) {
+            maxFreq -= 1;
+        }
+
+        return top;
     }
 };

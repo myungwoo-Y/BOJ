@@ -59,4 +59,37 @@ struct DisjointSet{
     }
 };
 
+// class version
+class DisjoinSet {
+public:
+    vector<int> parents;
+    vector<int> size;
+    
+    DisjoinSet(int n) {
+        size = vector<int>(n, 1);
+        
+        for (int i = 0; i < n; i++) {
+            parents.push_back(i);
+        }
+    }
+    
+    int getParent(int v) {
+        if (parents[v] == v) {
+            return v;
+        }
+        
+        return parents[v] = getParent(parents[v]);
+    }
+    
+    void merge(int m, int n) {
+        int pm = getParent(m);
+        int pn = getParent(n);
+        if (size[pm] < size[pn]) {
+            swap(pm,pn);
+        }
+        parents[pn] = pm;
+        size[pm] += size[pn];
+    }
+    
+};
 
